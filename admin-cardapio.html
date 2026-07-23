@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | Dolce Lou</title>
+  <meta name="description" content="Gerenciamento de produtos do cardápio da Dolce Lou.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="painel">
+
+    <!-- barrinha q fica do lado -->
+    <header class="painel-lateral">
+      <a class="painel-lateral__logo logo" href="dashboard.html" aria-label="Dolce Lou — painel">
+        <img src="fotinhas/logo (2).png" alt="Dolce Lou" width="56" height="56">
+      </a>
+      <nav class="painel-nav" aria-label="Menu do painel">
+        <a class="painel-nav__link" href="admin-cardapio.html" aria-current="page">Menu</a>
+        <a class="painel-nav__link" href="admin-pedidos.html">Pedidos</a>
+        <a class="painel-nav__link" href="admin-cadastro.html">Cadastro</a>
+        <a class="painel-nav__link" href="dashboard.html">BI</a>
+      </nav>
+      <div class="painel-lateral__sair">
+        <a class="painel-nav__link" href="login.html">Sair</a>
+      </div>
+    </header>
+
+    <!--conteudo -->
+    <main class="painel-conteudo" id="conteudo">
+      <div class="painel-cabecalho">
+        <div>
+          <h1 class="painel-cabecalho__titulo">Menu</h1>
+          <p class="texto-suave">Veja seus dados, edite informações ou cadastre produtos.</p>
+        </div>
+        <div class="painel-cabecalho__acoes">
+          <div class="filtro-wrap">
+            <button type="button" class="botao botao--contorno js-abrir-filtro-produtos">Filtros</button>
+            <div class="filtro-painel" id="filtro-produtos" hidden>
+              <p class="filtro-painel__titulo">Mostrar categorias</p>
+              <label class="filtro-painel__opcao">
+                <input type="checkbox" value="secao-cat-bolos" checked>
+                Bolos
+              </label>
+              <label class="filtro-painel__opcao">
+                <input type="checkbox" value="secao-cat-salgados" checked>
+                Salgados e tortas
+              </label>
+              <label class="filtro-painel__opcao">
+                <input type="checkbox" value="secao-cat-massas" checked>
+                Massas
+              </label>
+              <div class="filtro-painel__acoes">
+                <button type="button" class="botao botao--contorno js-limpar-filtro" style="padding:.4rem .8rem;font-size:.85rem">Mostrar tudo</button>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="botao botao--primario">Criar produto</button>
+        </div>
+      </div>
+
+      <!-- bólos -->
+      <section class="tabela-categoria" id="secao-cat-bolos" aria-labelledby="cat-bolos">
+        <h2 class="tabela-categoria__titulo" id="cat-bolos">Bolos</h2>
+        <div class="tabela-rolagem" tabindex="0" role="region" aria-label="Tabela de bolos, rolável">
+          <table class="tabela">
+            <caption class="sr-apenas">Lista de bolos cadastrados</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Medida</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Descrição</th>
+                <th scope="col"><span class="sr-apenas">Ações</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-produto-id="1">
+                <td data-campo="nome">Bolo de chocolate</td>
+                <td data-campo="medida">1,5 kg</td>
+                <td data-campo="preco">R$ 90,00</td>
+                <td data-campo="descricao">Massa de chocolate com recheio de brigadeiro e morangos.</td>
+                <td class="tabela__acoes">
+                  <button type="button" class="botao-icone botao-icone--editar"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Editar Bolo de chocolate</span></button>
+                  <button type="button" class="botao-icone botao-icone--excluir"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Excluir Bolo de chocolate</span></button>
+                </td>
+              </tr>
+              <tr data-produto-id="2">
+                <td data-campo="nome">Bolo red velvet</td>
+                <td data-campo="medida">1,2 kg</td>
+                <td data-campo="preco">R$ 110,00</td>
+                <td data-campo="descricao">Bolo vermelho aveludado com cobertura de cream cheese.</td>
+                <td class="tabela__acoes">
+                  <button type="button" class="botao-icone botao-icone--editar"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Editar Bolo red velvet</span></button>
+                  <button type="button" class="botao-icone botao-icone--excluir"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Excluir Bolo red velvet</span></button>
+                </td>
+              </tr>
+              <tr data-produto-id="3">
+                <td data-campo="nome">Bolo de cenoura</td>
+                <td data-campo="medida">1,0 kg</td>
+                <td data-campo="preco">R$ 70,00</td>
+                <td data-campo="descricao">Clássico bolo de cenoura com cobertura de chocolate.</td>
+                <td class="tabela__acoes">
+                  <button type="button" class="botao-icone botao-icone--editar"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Editar Bolo de cenoura</span></button>
+                  <button type="button" class="botao-icone botao-icone--excluir"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Excluir Bolo de cenoura</span></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- salgados -->
+      <section class="tabela-categoria" id="secao-cat-salgados" aria-labelledby="cat-salgados">
+        <h2 class="tabela-categoria__titulo" id="cat-salgados">Salgados e tortas</h2>
+        <div class="tabela-rolagem" tabindex="0" role="region" aria-label="Tabela de salgados e tortas, rolável">
+          <table class="tabela">
+            <caption class="sr-apenas">Lista de salgados e tortas cadastrados</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Medida</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Descrição</th>
+                <th scope="col"><span class="sr-apenas">Ações</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-produto-id="11">
+                <td data-campo="nome">Coxinha de frango</td>
+                <td data-campo="medida">por kg</td>
+                <td data-campo="preco">R$ 80,00</td>
+                <td data-campo="descricao">Coxinhas fritas na hora, recheio cremoso de frango.</td>
+                <td class="tabela__acoes">
+                  <button type="button" class="botao-icone botao-icone--editar"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Editar Coxinha de frango</span></button>
+                  <button type="button" class="botao-icone botao-icone--excluir"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Excluir Coxinha de frango</span></button>
+                </td>
+              </tr>
+              <tr data-produto-id="12">
+                <td data-campo="nome">Torta de palmito</td>
+                <td data-campo="medida">por unidade</td>
+                <td data-campo="preco">R$ 65,00</td>
+                <td data-campo="descricao">Massa amanteigada com recheio cremoso de palmito.</td>
+                <td class="tabela__acoes">
+                  <button type="button" class="botao-icone botao-icone--editar"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Editar Torta de palmito</span></button>
+                  <button type="button" class="botao-icone botao-icone--excluir"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Excluir Torta de palmito</span></button>
+                </td>
+              </tr>
+              <tr data-produto-id="13">
+                <td data-campo="nome">Empanado de frango</td>
+                <td data-campo="medida">por kg</td>
+                <td data-campo="preco">R$ 70,00</td>
+                <td data-campo="descricao">Iscas de frango empanadas e crocantes.</td>
+                <td class="tabela__acoes">
+                  <button type="button" class="botao-icone botao-icone--editar"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Editar Empanado de frango</span></button>
+                  <button type="button" class="botao-icone botao-icone--excluir"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Excluir Empanado de frango</span></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- massa -->
+      <section class="tabela-categoria" id="secao-cat-massas" aria-labelledby="cat-massas">
+        <h2 class="tabela-categoria__titulo" id="cat-massas">Massas</h2>
+        <div class="tabela-rolagem" tabindex="0" role="region" aria-label="Tabela de massas, rolável">
+          <table class="tabela">
+            <caption class="sr-apenas">Lista de massas cadastradas</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Medida</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Descrição</th>
+                <th scope="col"><span class="sr-apenas">Ações</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-produto-id="21">
+                <td data-campo="nome">Lasanha à bolonhesa</td>
+                <td data-campo="medida">por kg</td>
+                <td data-campo="preco">R$ 75,00</td>
+                <td data-campo="descricao">Massa fresca, molho à bolonhesa e queijo gratinado.</td>
+                <td class="tabela__acoes">
+                  <button type="button" class="botao-icone botao-icone--editar"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Editar Lasanha à bolonhesa</span></button>
+                  <button type="button" class="botao-icone botao-icone--excluir"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Excluir Lasanha à bolonhesa</span></button>
+                </td>
+              </tr>
+              <tr data-produto-id="22">
+                <td data-campo="nome">Canelone presunto e queijo</td>
+                <td data-campo="medida">por kg</td>
+                <td data-campo="preco">R$ 66,00</td>
+                <td data-campo="descricao">Canelone recheado ao molho branco.</td>
+                <td class="tabela__acoes">
+                  <button type="button" class="botao-icone botao-icone--editar"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Editar Canelone presunto e queijo</span></button>
+                  <button type="button" class="botao-icone botao-icone--excluir"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Excluir Canelone presunto e queijo</span></button>
+                </td>
+              </tr>
+              <tr data-produto-id="23">
+                <td data-campo="nome">Rondele 4 queijos</td>
+                <td data-campo="medida">por kg</td>
+                <td data-campo="preco">R$ 75,00</td>
+                <td data-campo="descricao">Rondele de massa fresca com mix de queijos.</td>
+                <td class="tabela__acoes">
+                  <button type="button" class="botao-icone botao-icone--editar"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Editar Rondele 4 queijos</span></button>
+                  <button type="button" class="botao-icone botao-icone--excluir"><span class="espaco-imagem" style="width:22px;height:22px" aria-hidden="true"></span><span class="sr-apenas">Excluir Rondele 4 queijos</span></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- POP-UP: CADASTRAR NOVO PRODUTO -->
+  <div class="modal" id="modal-produto" role="dialog" aria-modal="true" aria-labelledby="produto-modal-titulo" hidden>
+    <div class="modal__fundo" tabindex="-1"></div>
+    <div class="modal__caixa">
+      <button type="button" class="modal__fechar" aria-label="Fechar janela de cadastro de produto">
+        <span class="espaco-imagem" style="width:20px;height:20px" aria-hidden="true"></span>
+      </button>
+      <div class="compra__corpo">
+        <h2 class="compra__nome" id="produto-modal-titulo">Cadastrar novo produto</h2>
+        <p class="texto-suave" style="margin-bottom:1rem">Preencha os dados abaixo para adicionar um novo item ao cardápio.</p>
+
+        <form class="formulario" id="formulario-produto" novalidate>
+          <div class="campo">
+            <label class="campo__rotulo" for="produto-nome">Nome do produto</label>
+            <input class="campo__entrada" type="text" id="produto-nome" name="nome" placeholder="Ex: Torta de limão" required>
+          </div>
+
+          <div class="formulario__linha">
+            <div class="campo">
+              <label class="campo__rotulo" for="produto-categoria">Categoria</label>
+              <select class="campo__entrada" id="produto-categoria" name="categoria" required>
+                <option value="bolos">Bolos</option>
+                <option value="salgados">Salgados e tortas</option>
+                <option value="massas">Massas</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label class="campo__rotulo" for="produto-medida">Medida</label>
+              <input class="campo__entrada" type="text" id="produto-medida" name="medida" placeholder="Ex: por kg" required>
+            </div>
+          </div>
+
+          <div class="formulario__linha">
+            <div class="campo">
+              <label class="campo__rotulo" for="produto-preco">Preço (R$)</label>
+              <input class="campo__entrada" type="text" id="produto-preco" name="preco" placeholder="Ex: 70,00" required>
+            </div>
+            <div class="campo">
+              <span class="campo__rotulo">Imagem do produto</span>
+              <span class="espaco-imagem" style="width:100%;height:80px;border-radius:8px"></span>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label class="campo__rotulo" for="produto-descricao">Descrição</label>
+            <input class="campo__entrada" type="text" id="produto-descricao" name="descricao" placeholder="Descreva o produto" required>
+          </div>
+
+          <button type="submit" class="botao botao--primario botao--bloco" style="margin-top:.5rem">Cadastrar produto</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="avisos" class="sr-apenas" role="status" aria-live="polite"></div>
+  <div id="notificacao" class="notificacao" role="status" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

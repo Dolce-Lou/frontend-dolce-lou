@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indicadores | Dolce Lou</title>
+  <meta name="description" content="Painel administrativo da Dolce Lou.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="painel">
+
+    <!--barrinha q fica do lado-->
+    <header class="painel-lateral">
+      <a class="painel-lateral__logo logo" href="dashboard.html" aria-label="Dolce Lou — painel">
+       <img src="fotinhas/logo (2).png" alt="Dolce Lou" width="56" height="56">
+      </a>
+
+      <nav class="painel-nav" aria-label="Menu do painel">
+        <a class="painel-nav__link" href="admin-cardapio.html">Menu</a>
+        <a class="painel-nav__link" href="admin-pedidos.html">Pedidos</a>
+        <a class="painel-nav__link" href="admin-cadastro.html">Cadastro</a>
+        <a class="painel-nav__link" href="dashboard.html">BI</a>
+      </nav>
+
+      <div class="painel-lateral__sair">
+        <a class="painel-nav__link" href="login.html">Sair</a>
+      </div>
+    </header>
+
+    <!-- corpo -->
+    <main class="painel-conteudo" id="conteudo">
+      <div class="painel-cabecalho">
+        <h1 class="painel-cabecalho__titulo">Bem-vindo(a), <strong>Nome</strong>!</h1>
+      </div>
+      <p class="texto-suave" style="margin-top:-2.5rem;margin-bottom:2rem">Veja seus dados, edite informações ou
+        cadastre produtos.</p>
+
+      <div class="dashboard-cards">
+        
+        <section class="dashboard-card" aria-labelledby="card-pedidos">
+          <h2 class="dashboard-card__titulo" id="card-pedidos">Resumo de pedidos</h2>
+          <div class="indicadores">
+            <div class="indicador">
+              <span>Pedidos hoje</span>
+              <span class="indicador__valor" data-campo="pedidos-hoje">qtd pedidos</span>
+            </div>
+            <div class="indicador">
+              <span>Aguardando preparo</span>
+              <span class="indicador__valor" data-campo="aguardando">qtd aguardando</span>
+            </div>
+            <div class="indicador">
+              <span>Faturamento do dia</span>
+              <span class="indicador__valor" data-campo="faturamento">R$ faturamento</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="dashboard-card" aria-labelledby="card-atalhos">
+          <h2 class="dashboard-card__titulo" id="card-atalhos">Atalhos rápidos</h2>
+          <div class="indicadores">
+            <a class="indicador" href="admin-cardapio.html" style="text-decoration:none;color:inherit">
+              <span>Gerenciar cardápio</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a class="indicador" href="#" style="text-decoration:none;color:inherit">
+              <span>Ver pedidos abertos</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a class="indicador" href="#" style="text-decoration:none;color:inherit">
+              <span>Editar meus dados</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div id="avisos" class="sr-apenas" role="status" aria-live="polite"></div>
+  <div id="notificacao" class="notificacao" role="status" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
